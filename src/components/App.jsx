@@ -1,14 +1,25 @@
 import { ContactList } from './ContactList/ContactList';
+import { Route, Routes } from 'react-router-dom';
 import Form from './ContactForm/Form';
 import Filter from './Filter';
 import { Container, MainTitle, Title, Message } from './App.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { getError, getIsLoading, selectContacts } from 'redux/selectors';
+import {
+  getError,
+  getIsLoading,
+  selectContacts,
+} from 'redux/contacts/selectors';
 import { useEffect } from 'react';
-import { fetchContacts } from 'redux/operations';
+import { fetchContacts } from 'redux/contacts/operations';
 import { Loader } from './Loader/Loader';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { UserMenu } from './UserMenu/UserMenu';
+import { fetchCurrentUser } from 'redux/auth/authOperation';
+import RegistrationPage from 'pages/RegistrationPage';
+import LoginPage from 'pages/LodInPage';
+import ContactPage from 'pages/ContactPage';
+import AppBar from './AppBar';
 
 export function App() {
   const contacts = useSelector(selectContacts);
@@ -17,8 +28,12 @@ export function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(fetchCurrentUser());
   }, [dispatch]);
+
+  // useEffect(() => {
+  //   dispatch(fetchContacts());
+  // }, [dispatch]);
 
   useEffect(() => {
     if (error) {
@@ -26,26 +41,37 @@ export function App() {
     }
   }, [error]);
 
+  // return (
+  //   <Container>
+  //     <UserMenu />
+  //     <MainTitle>Phonebook</MainTitle>
+  //     <Form />
+  //     <Title>Contacts</Title>
+  //     {contacts.length === 0 ? (
+  //       <Message>There is no contacts</Message>
+  //     ) : (
+  //       <>
+  //         <Filter />
+  //         <ContactList />
+  //       </>
+  //     )}
+  //     {loading && <Loader />}
+  //     <ToastContainer
+  //       position="top-center"
+  //       autoClose={5000}
+  //       closeOnClick
+  //       theme="colored"
+  //     />
+  //   </Container>
+  // );
+
   return (
-    <Container>
-      <MainTitle>Phonebook</MainTitle>
-      <Form />
-      <Title>Contacts</Title>
-      {contacts.length === 0 ? (
-        <Message>There is no contacts</Message>
-      ) : (
-        <>
-          <Filter />
-          <ContactList />
-        </>
-      )}
-      {loading && <Loader />}
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        closeOnClick
-        theme="colored"
-      />
-    </Container>
+    <Routes>
+      <Route path="/" element={<AppBar />} />
+      <Route path="register" element={<RegistrationPage />} />
+      <Route path="login" element={<LoginPage />} />
+      <Route path="contacts" element={<ContactPage />} />
+      <Route path="*" element={<>404</>} />
+    </Routes>
   );
 }
