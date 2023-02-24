@@ -9,6 +9,7 @@ import LoginPage from 'pages/LogInPage';
 import ProtectedContactsPage from 'pages/ContactPage';
 import AppBar from './AppBar';
 import { toast } from 'react-toastify';
+import HomePage from 'pages/HomePage';
 
 export function App() {
   const error = useSelector(getError);
@@ -25,12 +26,15 @@ export function App() {
   }, [error]);
 
   return (
-    <Routes>
-      <Route path="/" element={<AppBar />} />
-      <Route path="register" element={<RegistrationPage />} />
-      <Route path="login" element={<LoginPage />} />
-      <Route path="contacts" element={<ProtectedContactsPage />} />
-      <Route path="*" element={<>404</>} />
-    </Routes>
+    <>
+      <AppBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="register" element={<RegistrationPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="contacts" element={<ProtectedContactsPage />} />
+        <Route path="*" element={<>404</>} />
+      </Routes>
+    </>
   );
 }

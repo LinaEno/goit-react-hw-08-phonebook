@@ -35,7 +35,6 @@ const ContactPage = () => {
   }, [error]);
   return (
     <Container>
-      <UserMenu />
       <MainTitle>Phonebook</MainTitle>
       <Form />
       <Title>Contacts</Title>
