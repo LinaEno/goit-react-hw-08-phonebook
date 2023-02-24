@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { registration } from 'redux/auth/authOperation';
-import { getUserName, userData } from 'redux/auth/authSelectors';
+import { getUserName } from 'redux/auth/authSelectors';
 
 export default function RegistrationPage() {
   const dispatch = useDispatch();
@@ -40,16 +40,16 @@ export default function RegistrationPage() {
 
   return (
     <div>
-      <h1>Страница регистрации</h1>
+      <h1>Registration</h1>
 
       <form onSubmit={handleSubmit} autoComplete="off">
         <label>
-          Имя
+          Name
           <input type="text" name="name" value={name} onChange={handleChange} />
         </label>
 
         <label>
-          Почта
+          E-mail
           <input
             type="email"
             name="email"
@@ -59,7 +59,7 @@ export default function RegistrationPage() {
         </label>
 
         <label>
-          Пароль
+          Password
           <input
             type="password"
             name="password"
@@ -68,7 +68,7 @@ export default function RegistrationPage() {
           />
         </label>
 
-        <button type="submit">Зарегистрироваться</button>
+        <button type="submit">Registration</button>
       </form>
     </div>
   );
