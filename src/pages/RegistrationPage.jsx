@@ -1,3 +1,6 @@
+import { Container, Title } from 'components/App.styled';
+import { Button } from 'components/ContactList/ContactList.styled';
+import { Input, Label } from 'components/Filter/Filter.styled';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -39,37 +42,37 @@ export default function RegistrationPage() {
   };
 
   return (
-    <div>
-      <h1>Registration</h1>
+    <Container>
+      <Title>Registration</Title>
 
       <form onSubmit={handleSubmit} autoComplete="off">
-        <label>
+        <Label>
           Name
-          <input type="text" name="name" value={name} onChange={handleChange} />
-        </label>
+          <Input type="text" name="name" value={name} onChange={handleChange} />
+        </Label>
 
-        <label>
+        <Label>
           E-mail
-          <input
+          <Input
             type="email"
             name="email"
             value={email}
             onChange={handleChange}
           />
-        </label>
+        </Label>
 
-        <label>
+        <Label>
           Password
-          <input
+          <Input
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
           />
-        </label>
+        </Label>
 
-        <button type="submit">Registration</button>
+        <Button type="submit">Registration</Button>
       </form>
-    </div>
+    </Container>
   );
 }

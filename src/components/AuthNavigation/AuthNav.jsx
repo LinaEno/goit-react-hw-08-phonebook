@@ -1,10 +1,10 @@
-import { NavLink } from 'react-router-dom';
+import { ContainerAuth, Link } from 'components/App.styled';
 
 export default function AuthNav() {
   return (
-    <div>
-      <NavLink to="register">Регистрация</NavLink>
-      <NavLink to="login">Логин</NavLink>
-    </div>
+    <ContainerAuth>
+      <Link to="register">Registration</Link>
+      <Link to="login">Log in</Link>
+    </ContainerAuth>
   );
 }

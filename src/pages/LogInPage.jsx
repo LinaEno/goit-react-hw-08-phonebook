@@ -1,3 +1,6 @@
+import { Container, Title } from 'components/App.styled';
+import { Button } from 'components/ContactList/ContactList.styled';
+import { Input, Label } from 'components/Filter/Filter.styled';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -34,32 +37,31 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
-      <h1>Log in</h1>
-
+    <Container>
+      <Title>Log in</Title>
       <form onSubmit={handleSubmit} autoComplete="off">
-        <label>
+        <Label>
           E-mail
-          <input
+          <Input
             type="email"
             name="email"
             value={email}
             onChange={handleChange}
           />
-        </label>
+        </Label>
 
-        <label>
+        <Label>
           Password
-          <input
+          <Input
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
           />
-        </label>
+        </Label>
 
-        <button type="submit">Log in</button>
+        <Button type="submit">Log in</Button>
       </form>
-    </div>
+    </Container>
   );
 }

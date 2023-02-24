@@ -12,7 +12,6 @@ export default function AppBar() {
       ) : (
         <>
           <AuthNav />
-          <h1>Welcome</h1>
         </>
       )}
     </header>

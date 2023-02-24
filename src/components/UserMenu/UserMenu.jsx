@@ -1,3 +1,5 @@
+import { ContainerWelcome, WelcomeMessage } from 'components/App.styled';
+import { Button } from 'components/ContactList/ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/auth/authOperation';
 import { getUserName } from 'redux/auth/authSelectors';
@@ -12,11 +14,11 @@ export const UserMenu = () => {
   };
 
   return (
-    <div>
-      <p>Welcome, {user}</p>
-      <button type="button" onClick={handleChange}>
+    <ContainerWelcome>
+      <WelcomeMessage>Welcome, {user}</WelcomeMessage>
+      <Button type="button" onClick={handleChange}>
         Logout
-      </button>
-    </div>
+      </Button>
+    </ContainerWelcome>
   );
 };

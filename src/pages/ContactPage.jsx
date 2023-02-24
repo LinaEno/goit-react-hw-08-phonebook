@@ -7,7 +7,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
 import { fetchContacts } from 'redux/contacts/operations';
-import { UserMenu } from 'components/UserMenu/UserMenu';
 import {
   getError,
   getIsLoading,
