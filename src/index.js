@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ThemeProvider theme={theme}>
       <PersistGate loading={null} persistor={persistor}>
         <Provider store={store}>
-          <BrowserRouter>
+          <BrowserRouter basename="/goit-react-hw-08-phonebook">
             <App />
           </BrowserRouter>
         </Provider>
