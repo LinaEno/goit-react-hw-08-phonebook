@@ -1,13 +1,24 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-08-phonebook/static/css/main.45fde785.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.d6bb0da8.js",
+    "main.css": "/goit-react-hw-08-phonebook/static/css/main.41eeba85.css",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.09aa877a.js",
+    "static/js/983.cd2473b7.chunk.js": "/goit-react-hw-08-phonebook/static/js/983.cd2473b7.chunk.js",
+    "static/js/932.6dc0fc90.chunk.js": "/goit-react-hw-08-phonebook/static/js/932.6dc0fc90.chunk.js",
+    "static/js/897.089cf526.chunk.js": "/goit-react-hw-08-phonebook/static/js/897.089cf526.chunk.js",
+    "static/js/918.8328d46e.chunk.js": "/goit-react-hw-08-phonebook/static/js/918.8328d46e.chunk.js",
+    "static/js/575.a18fcdf4.chunk.js": "/goit-react-hw-08-phonebook/static/js/575.a18fcdf4.chunk.js",
+    "static/media/phonebook.png": "/goit-react-hw-08-phonebook/static/media/phonebook.c3593a556e5ed639e8f6.png",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
-    "main.45fde785.css.map": "/goit-react-hw-08-phonebook/static/css/main.45fde785.css.map",
-    "main.d6bb0da8.js.map": "/goit-react-hw-08-phonebook/static/js/main.d6bb0da8.js.map"
+    "main.41eeba85.css.map": "/goit-react-hw-08-phonebook/static/css/main.41eeba85.css.map",
+    "main.09aa877a.js.map": "/goit-react-hw-08-phonebook/static/js/main.09aa877a.js.map",
+    "983.cd2473b7.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/983.cd2473b7.chunk.js.map",
+    "932.6dc0fc90.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/932.6dc0fc90.chunk.js.map",
+    "897.089cf526.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/897.089cf526.chunk.js.map",
+    "918.8328d46e.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/918.8328d46e.chunk.js.map",
+    "575.a18fcdf4.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/575.a18fcdf4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.45fde785.css",
-    "static/js/main.d6bb0da8.js"
+    "static/css/main.41eeba85.css",
+    "static/js/main.09aa877a.js"
   ]
 }
