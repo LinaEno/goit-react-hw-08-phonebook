@@ -13,16 +13,20 @@ import {
   getIsLoading,
   selectContacts,
 } from 'redux/contacts/selectors';
+import WithAuthRedirect from 'hoc/WithAuthRedirect';
+import { getUserName } from 'redux/auth/authSelectors';
 
 const ContactPage = () => {
   const contacts = useSelector(selectContacts);
   const loading = useSelector(getIsLoading);
   const error = useSelector(getError);
   const dispatch = useDispatch();
+  const user = useSelector(getUserName);
 
   useEffect(() => {
+    if (user === null) return;
     dispatch(fetchContacts());
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   useEffect(() => {
     if (error) {
@@ -54,4 +58,6 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+const ProtectedContactsPage = WithAuthRedirect(ContactPage, '/login');
+
+export default ProtectedContactsPage;

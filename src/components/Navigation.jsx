@@ -1,9 +1,5 @@
 import { NavLink } from 'react-router-dom';
 
-const Navigation = () => (
-  <NavLink to="contacts" exact>
-    contacts
-  </NavLink>
-);
+const Navigation = () => <NavLink to="contacts">contacts</NavLink>;
 
 export default Navigation;

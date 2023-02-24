@@ -1,11 +1,19 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { logIn } from 'redux/auth/authOperation';
+import { getUserName } from 'redux/auth/authSelectors';
 
 export default function LoginPage() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector(getUserName);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    if (user !== null) navigate('/contacts');
+  }, [user, navigate]);
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {

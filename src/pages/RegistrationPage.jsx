@@ -1,12 +1,21 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { registration } from 'redux/auth/authOperation';
+import { getUserName, userData } from 'redux/auth/authSelectors';
 
 export default function RegistrationPage() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector(getUserName);
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    if (user !== null) navigate('/contacts');
+  }, [user, navigate]);
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {

@@ -11,23 +11,23 @@ const initialState = {
 
 //////////////////////////////////////////////
 
-const extraActions = [registration, logIn, logOut, fetchCurrentUser];
+// const extraActions = [registration, logIn, logOut, fetchCurrentUser];
 
-const getActions = type => extraActions.map(action => action[type]);
+// const getActions = type => extraActions.map(action => action[type]);
 
-const handlePending = state => {
-  state.auth.isLoading = true;
-};
+// const handlePending = state => {
+//   state.isLoading = true;
+// };
 
-const handleFulfilled = state => {
-  state.auth.isLoading = false;
-  state.auth.error = null;
-};
+// const handleFulfilled = state => {
+//   state.isLoading = false;
+//   state.auth.error = null;
+// };
 
-const handleRejected = (state, { payload }) => {
-  //   state.auth.isLoading = false;
-  //   state.auth.error = payload;
-};
+// const handleRejected = (state, { payload }) => {
+//   state.isLoading = false;
+//   state.error = payload;
+// };
 
 const authSlice = createSlice({
   name: 'auth',
@@ -53,14 +53,18 @@ const authSlice = createSlice({
         state.token = null;
         state.isLoggedIn = false;
       })
+      .addCase(fetchCurrentUser.pending, state => {
+        state.isLoading = true;
+      })
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.isLoggedIn = true;
-      })
+        state.isLoading = false;
+      }),
 
-      .addMatcher(isAnyOf(...getActions('pending')), handlePending)
-      .addMatcher(isAnyOf(...getActions('fulfilled')), handleFulfilled)
-      .addMatcher(isAnyOf(...getActions('rejected')), handleRejected),
+  // .addMatcher(isAnyOf(...getActions('pending')), handlePending)
+  // .addMatcher(isAnyOf(...getActions('fulfilled')), handleFulfilled)
+  // .addMatcher(isAnyOf(...getActions('rejected')), handleRejected),
 });
 
 export const authReducer = authSlice.reducer;
