@@ -9,7 +9,7 @@ import AppBar from './AppBar';
 import { toast } from 'react-toastify';
 import { selectRefreshed } from 'redux/auth/authSelectors';
 import { Loader } from './Loader/Loader';
-import Form from './hokform/form';
+// import Form from './hokform/form';
 
 const HomePage = lazy(() => import('pages/HomePage'));
 const RegistrationPage = lazy(() => import('pages/RegistrationPage'));
@@ -41,8 +41,8 @@ export function App() {
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            {/* <Route path="register" element={<RegistrationPage />} /> */}
-            <Route path="register" element={<Form />} />
+            <Route path="register" element={<RegistrationPage />} />
+            {/* <Route path="register" element={<Form />} /> */}
             <Route path="login" element={<LoginPage />} />
             <Route path="contacts" element={<ProtectedContactsPage />} />
             <Route path="*" element={<PageNotFound404 />} />
